@@ -1,0 +1,62 @@
+@(title: String)
+
+@import helper._
+
+@main(title) {
+      
+      @navbar(title)(Nil)
+
+      <div class="container">
+        <div class="row">
+          <div class="span12" style="background-color: white;padding: 2em;">     
+    
+<h1>1. Chapter 1</h1>
+
+<h2>Why care about types?</h2>
+
+<p>
+  Every expression and function in Haskell has a type. For example,
+    the value True has the type Bool, while the value "foo" has the
+  type
+  String. The type of a value indicates that it shares certain
+  properties with other values of the same type. For example, we can
+  add numbers, and we can concatenate lists; these are properties of
+  those types. We say an expression “has type X”, or “is of type X”.
+  <i class="icon-comment"></i>
+</p>
+
+<p>
+  There are three interesting aspects to types in Haskell: they are
+  strong, they are static, and they can be automatically
+  inferred. Let's
+  talk in more detail about each of these ideas. When possible, we'll
+  present similarities between concepts from Haskell's type system and
+  related ideas in other languages. We'll also touch on the respective
+  strengths and weaknesses of each of these
+  properties. <i class="icon-comment"></i>
+</p>
+<pre class="prettyprint linenums">
+  class Monad m where
+  -- chain
+  (>>=)  :: m a -> (a -> m b) -> m b
+  -- inject
+  return :: a -> m a
+</pre>
+
+<h3>Strong types</h3>
+<p>
+  When we say that Haskell has a strong type system, we mean that the
+  type system guarantees that a program cannot contain certain kinds
+  of
+  errors. These errors come from trying to write expressions that
+  don't
+  make sense, such as using an integer as a function. For instance, if
+  a
+  function expects to work with integers, and we pass it a string, a
+  Haskell compiler will reject this. <i class="icon-comment"></i>
+</p>
+
+          </div>
+        </div>
+      </div>
+}

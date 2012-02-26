@@ -1,0 +1,26 @@
+@(title: String)(chapters: List[Chapter])
+
+<div class="navbar">          
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">
+        @title
+      </a>
+      <ul class="nav">
+        <li class="dropdown" id="menu1">
+          <a class="dropdown-toggle" data-toggle="dropdown"
+             href="#menu1">
+            Chapters
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            @chapters.map { c =>
+            <li><a href="#">@c.position : @c.title</a></li>
+            }
+          </ul>
+        </li>                
+      </ul>
+      <div style="float:right;"><a class="brand" href="./index.html">elenchus</a></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+@(chapters: List[Chapter], title: String, body: String)
+
+@import helper._
+
+@main(title) {
+      
+      @navbar(title)(chapters)
+
+      <div class="container">
+        <div class="row">
+          <div class="span12" style="background-color: white;padding: 2em;">     
+    
+            @Html(body)
+
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        $('p').append('<i class="icon-comment"></i>');
+      </script>
+}

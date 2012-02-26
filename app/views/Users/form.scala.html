@@ -1,0 +1,57 @@
+@(userForm: Form[User])
+
+@import helper._
+
+@main("New User") {
+
+  @navbar("New User")(Nil)
+
+  <div class="container">
+    <div class="row">
+      <div class="span12" style="background-color:
+                                 white;padding: 2em;">
+
+  @helper.form(action = routes.Users.submit) {
+    <fieldset>
+    <legend>Book</legend>
+
+    @inputText(
+      userForm("username"),
+      '_label -> "username",
+      '_help -> "Please choose a valid username.",
+      '_error -> userForm.globalError
+    )
+
+    @inputText(
+      userForm("email"),
+      '_label -> "email",
+      '_help -> "Please choose a valid email.",
+      '_error -> userForm.globalError
+    )
+
+    @inputText(
+    userForm("fullname"),
+    '_label -> "fullname",
+    '_help -> "Please choose a valid fullname.",
+    '_error -> userForm.globalError
+    )
+
+    @inputText(
+    userForm("password"),
+    '_label -> "password",
+    '_help -> "Please choose a valid password.",
+    '_error -> userForm.globalError
+        )
+    
+     </fieldset>
+
+     <div class="actions">
+     <input type="submit" class="btn primary" value="new user">
+     <a href="@routes.Application.index" class="btn">Cancel</a>
+     </div>
+     }
+
+      </div>
+    </div>
+  </div>
+}

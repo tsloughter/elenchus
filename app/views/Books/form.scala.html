@@ -1,0 +1,37 @@
+@(bookForm: Form[Book])
+
+@import helper._
+
+@main("New Book") {
+
+  @navbar("New User")(Nil)
+
+  <div class="container">
+    <div class="row">
+      <div class="span12" style="background-color:
+                                 white;padding: 2em;">
+
+         @helper.form(action = routes.Books.submit) {
+
+           <fieldset>
+             <legend>Book</legend>
+
+             @inputText(
+             bookForm("title"),
+             '_label -> "title",
+             '_help -> "Please choose a valid title.",
+             '_error -> bookForm.globalError 
+             )
+           </fieldset>
+
+           <div class="actions">
+             <input type="submit" class="btn primary" value="new book">
+             <a href="@routes.Application.index" class="btn">Cancel</a>
+           </div>
+          }
+
+      </div>
+    </div>
+  </div>
+}
+
