@@ -13,13 +13,14 @@ object Users extends Controller {
       "username" -> text(minLength = 3),
       "email" -> email,
       "password" -> text,
-      "fullname" -> text
+      "fullname" -> text,
+      "keys" -> text
     )
     {
-      (username, email, password, fullname) => User(1, username, email, password, fullname)
+      (username, email, password, fullname, keys) => User(1, username, email, password, fullname, keys)
     }
     {
-      user => Some(user.username, user.email, user.password, user.fullname)
+      user => Some(user.username, user.email, user.password, user.fullname, user.keys)
     }
   )
 

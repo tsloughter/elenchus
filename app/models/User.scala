@@ -6,7 +6,8 @@ import play.api.Play.current
 import anorm._
 import anorm.SqlParser._
 
-case class User(id: Long, username: String, email: String, password: String, fullname: String)
+case class User(id: Long, username: String, email: String,
+                password: String, fullname: String)
 
 object User {
   val simple = {
@@ -15,7 +16,8 @@ object User {
     get[String]("email")~
     get[String]("password")~
     get[String]("fullname") map {
-      case id~username~email~password~fullname => User(id, username, email, password, fullname)
+      case id~username~email~password~fullname => User(id, username, email,
+                                                            password, fullname)
     }
   }
 
@@ -27,7 +29,7 @@ object User {
 
   def all(): List[User] = {
     DB.withConnection { implicit connection =>
-      SQL("select * from book").as(User.simple *)
+      SQL("select * from user").as(User.simple *)
     }
   }
 
